@@ -1,0 +1,13 @@
+services:
+  django-backend:
+    build: 
+      context: Backend
+      dockerfile: Backend/Containerfile
+    ports:
+      - "8000:8000"
+  oracle-xe-database:
+    image: docker.io/gvenzl/oracle-xe:slim
+    expose:
+      - 1521
+    environment:
+      - ORACLE_PASSWORD=contra

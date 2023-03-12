@@ -1,8 +1,6 @@
 services:
   oracle-xe-database:
-    build:
-      context: .
-      dockerfile: Containerfile
+    image: docker.io/gvenzl/oracle-xe:slim
     ports:
       - "1521:1521"
     environment:
