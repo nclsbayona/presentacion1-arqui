@@ -3,3 +3,7 @@ services:
     build:
       context: .
       dockerfile: Containerfile
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=contra
