@@ -1,0 +1,5 @@
+services:
+  oracle-xe-database:
+    build:
+      context: .
+      dockerfile: Containerfile

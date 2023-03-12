@@ -1,0 +1,2 @@
+FROM docker.io/gvenzl/oracle-xe:slim
+COPY init.sql /container-entrypoint-initdb.d
