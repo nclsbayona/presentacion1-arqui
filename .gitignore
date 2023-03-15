@@ -11,3 +11,6 @@
 
 # Virtual Environment
 **/.venv
+
+# Npm stuff
+**/node_modules

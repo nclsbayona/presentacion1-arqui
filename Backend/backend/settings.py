@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-6i!jvxo^!a+blpd5pp-_8@bj=g4utl2_jxw3l3jcx+*44t$7=c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0", "localhost"]
 
 
 # Application definition
@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'stuff'
+    'stuff',
+    'corsheaders'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,11 +79,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    """'default': {
+"""DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }"""
+    }
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': 'xe',
@@ -89,6 +91,22 @@ DATABASES = {
         'PASSWORD': 'contra',
         'HOST': 'oracle-xe-database',
         'PORT': '1541',
+    }
+}"""
+
+DATABASES = {
+    'sqlite': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'contra',
+        'HOST': 'db',
+        # 'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

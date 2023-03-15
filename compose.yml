@@ -1,13 +1,26 @@
 services:
-  django-backend:
-    build: 
-      context: Backend
-      dockerfile: Backend/Containerfile
-    ports:
-      - "8000:8000"
-  oracle-xe-database:
-    image: docker.io/gvenzl/oracle-xe:slim
+  
+  db:
+    image: docker.io/postgres:15.2-alpine
     expose:
-      - 1521
+      - 5432
     environment:
-      - ORACLE_PASSWORD=contra
+      - POSTGRES_PASSWORD=contra
+
+  backend:
+    build: 
+      dockerfile: Containerfile
+      context: Backend
+    restart: on-failure
+    expose:
+      - 8000
+    ports:
+      - "8080:8000"
+      
+  frontend:
+    build:
+      dockerfile: Containerfile
+      context: Frontend
+    restart: on-failure
+    ports:
+      - "3000:3000"
