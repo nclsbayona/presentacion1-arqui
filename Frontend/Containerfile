@@ -1,6 +1,7 @@
 FROM docker.io/node:lts
 WORKDIR /home
-COPY . .
-RUN npm install
 EXPOSE 3000
-ENTRYPOINT [ "npm", "start" ]
+CMD ["sleep", "infinity"]
+# COPY . .
+# RUN npm install
+# ENTRYPOINT [ "npm", "start" ]

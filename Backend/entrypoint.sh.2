@@ -1,6 +1,0 @@
-#!/bin/bash
-./wait-for-it.sh localhost:5432 -- echo "Waiting for postgres..."
-./wait-for-it.sh localhost:5432 -- sleep 30s
-./wait-for-it.sh localhost:5432 -- python manage.py migrate
-./wait-for-it.sh localhost:5432 -- python manage.py runserver 0.0.0.0:8000
-./wait-for-it.sh localhost:5432 -- echo "Server ready :D"

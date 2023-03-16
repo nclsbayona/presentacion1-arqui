@@ -2,6 +2,7 @@ services:
   
   db:
     image: docker.io/postgres:15.2-alpine
+    restart: on-failure
     expose:
       - 5432
     environment:
@@ -15,12 +16,16 @@ services:
     expose:
       - 8000
     ports:
-      - "8080:8000"
+      - "8000:8000"
       
   frontend:
     build:
       dockerfile: Containerfile
       context: Frontend
     restart: on-failure
+    volumes: 
+      - type: bind
+        source: ./Frontend
+        target: /home
     ports:
       - "3000:3000"

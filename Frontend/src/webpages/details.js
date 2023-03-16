@@ -6,7 +6,7 @@ const User = props => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch("http://backend:8000/api/person/"+String(id))
+        fetch("http://localhost:8000/api/person/"+String(id))
             .then(res => res.json())
             .then(
                 (data) => {

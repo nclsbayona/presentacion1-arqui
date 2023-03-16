@@ -5,7 +5,7 @@ const Home = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch("http://backend:8000/api/person/")
+        fetch("http://localhost:8000/api/person/")
             .then(res => res.json())
             .then(
                 (data) => {
