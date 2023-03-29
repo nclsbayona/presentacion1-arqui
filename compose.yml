@@ -21,11 +21,11 @@ services:
   frontend:
     build:
       dockerfile: Containerfile
-      context: Frontend
+      context: frontend
     restart: on-failure
     volumes: 
       - type: bind
-        source: ./Frontend
+        source: ./frontend
         target: /home
     ports:
       - "3000:3000"
