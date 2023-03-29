@@ -8,24 +8,27 @@ export default function Main(props: any){
     let myRestClient = new UserRestClient();
 
     const [state, setState] = useState({
+        id: "",
         name: "",
         age: "",
-        birthDay: "",
-        gender: ""
+        gender: "",
+        height: ""
     });
 
     const executeSubmit = (event: any) => {
         event.preventDefault();
+        console.log(state.id);
         console.log(state.name);
         console.log(state.age);
-        console.log(state.birthDay);
         console.log(state.gender);
+        console.log(state.height);
 
         const request = {
+            id: state.id,
             name: state.name,
-            lastName: state.age,
-            birthDay: state.birthDay,
-            typeID: state.gender,
+            age: state.age,
+            gender: state.gender,
+            height: state.height
         };
     }
 
@@ -46,6 +49,14 @@ export default function Main(props: any){
                 <div className="my-form">
                     <h1 className="title">Formulario</h1>
                     <form onSubmit={executeSubmit} id="myform" className="myForm contact-form needs-validation">
+                    <div className="form-group row col-lg-12 col-sm-12 rows">
+                            <label className="col-lg-6" htmlFor="inputName">ID</label>
+                            <input className="col-lg-4" type="text" id="inputId" placeholder="ID" name="id"
+                                value={state.id} onChange={handleOnChange} required />
+                            <div className="invalid-feedback">
+                                Ingrese un ID.
+                            </div>        
+                        </div>
                         <div className="form-group row col-lg-12 col-sm-12 rows">
                             <label className="col-lg-6" htmlFor="inputName">Nombre</label>
                             <input className="col-lg-4" type="text" id="inputName" placeholder="Nombre" name="name"
@@ -55,17 +66,9 @@ export default function Main(props: any){
                             </div>        
                         </div>
                         <div className="form-group row col-lg-12 col-sm-12 rows">
-                            <label className="col-lg-6" htmlFor="inputName">Apellido</label>
-                            <input className="col-lg-4" type="text" id="inputLastName" placeholder="Apellido" name="lastName"
-                                value={state.name} onChange={handleOnChange} required />
-                            <div className="invalid-feedback">
-                                Ingrese un apellido.
-                            </div>
-                        </div>
-                        <div className="form-group row col-lg-12 col-sm-12 rows">
                             <label className="col-lg-6" htmlFor="inputName">Edad</label>
                             <input className="col-lg-4" type="text" id="inputAge" placeholder="Edad" name="age"
-                                value={state.name} onChange={handleOnChange} required />
+                                value={state.age} onChange={handleOnChange} required />
                             <div className="invalid-feedback">
                                 Ingrese una edad.
                             </div>
@@ -73,7 +76,7 @@ export default function Main(props: any){
                         <div className="form-group row col-lg-12 col-sm-12 rows">
                             <label className="col-lg-6" htmlFor="inputName">Genero</label>
                             <input className="col-lg-4" type="text" id="inputGender" placeholder="Genero" name="gender"
-                                value={state.name} onChange={handleOnChange} required />
+                                value={state.gender} onChange={handleOnChange} required />
                             <div className="invalid-feedback">
                                 Ingrese un genero.
                             </div>
@@ -81,7 +84,7 @@ export default function Main(props: any){
                         <div className="form-group row col-lg-12 col-sm-12 rows">
                             <label className="col-lg-6" htmlFor="inputName">Altura</label>
                             <input className="col-lg-4" type="text" id="inputHeight" placeholder="Altura" name="height"
-                                value={state.name} onChange={handleOnChange} required />
+                                value={state.height} onChange={handleOnChange} required />
                             <div className="invalid-feedback">
                                 Ingrese una altura.
                             </div>
