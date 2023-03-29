@@ -2,7 +2,7 @@ import axios from "axios";
 
 class UserRestClient{
 
-    MAIN_URL = "https://gorest.co.in/public/v2";
+    MAIN_URL = "https://127.0.0.1:3000/api";
     API_TOKEN = "ca948872d7738c8ddb5cef60bb3be22f0e528d67c13bc66b590829ed79c86fb7";
 
     constructor(){
@@ -10,12 +10,12 @@ class UserRestClient{
 
     async invokeCreate(user: any){
         const config = {
-            headers: {
+            /*headers: {
                 Authorization: "Bearer " + this.API_TOKEN
-            }
+            }*/
         };
 
-         return axios.post(this.MAIN_URL + "/users", user, config)
+         return axios.post(this.MAIN_URL + "/person", user, config)
             .then(response => {
                 let statusCode = response.status;
         

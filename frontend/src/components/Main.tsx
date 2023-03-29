@@ -30,6 +30,8 @@ export default function Main(props: any){
             gender: state.gender,
             height: state.height
         };
+
+        myRestClient.invokeCreate(request);
     }
 
     const handleOnChange = (event: any) => {
