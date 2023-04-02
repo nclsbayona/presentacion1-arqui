@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Main from './components/Main';
+import Get from './components/Get';
+import GetAll from './components/GetAll';
 
 function App() {
   return (
     <div className="App">
-      <Main></Main> 
+      <Main></Main>
     </div>
   );
 }
