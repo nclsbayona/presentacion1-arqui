@@ -8,18 +8,19 @@ export default function GetAll(props: any){
     let myRestClient = new UserRestClient();
 
     const [state, setState] = useState({
-        datos: ""
+        data: ""
     });
 
     const executeSubmit = async (event: any) => {
         event.preventDefault();
-        console.log(state.datos);
+        console.log(state.data);
 
         let response = await myRestClient.getAllUsers();
+        console.log("Se ejecuto el metodo" + response);
 
         setState({
             ...state,
-            //datos: response.
+            data: response
         });
     }
 
@@ -44,8 +45,8 @@ export default function GetAll(props: any){
                         <div className="form-group row col-lg-12 col-sm-12 rows"></div>
                         <div className="form-group row col-lg-12 col-sm-12 rows">
                             <label className="col-lg-2" htmlFor="inputName"></label>
-                            <input className="col-lg-8" type="text" id="inputData" placeholder="Usuarios" name="datos"
-                                value={state.datos} disabled />      
+                            <textarea className="col-lg-8" id="inputData" name="data"
+                                value={state.data} disabled />      
                         </div>
                     </form>
                 </div>

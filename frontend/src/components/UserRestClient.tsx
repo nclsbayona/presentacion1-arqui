@@ -51,11 +51,13 @@ class UserRestClient{
         return axios(configGET)
             .then( response => {
                         let statusCode = response.status;
+
+                        console.log(JSON.stringify(response.data));
                     
                         if(statusCode === 200){
                             let respuestaJson = response.data;
 
-                            return respuestaJson;
+                            return JSON.stringify(respuestaJson);
                         } else {
                             throw new Error("Se esperaba un 200 y se obtuvo un: " + statusCode);
                         } 
