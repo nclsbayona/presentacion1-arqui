@@ -23,9 +23,5 @@ services:
       dockerfile: Containerfile
       context: frontend
     restart: on-failure
-    volumes: 
-      - type: bind
-        source: ./frontend
-        target: /home
     ports:
       - "3000:3000"
